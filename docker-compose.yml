@@ -7,6 +7,6 @@ services:
     ports: 
       - 5432:5432
     environment: 
-      POSTGRESS_DB: 'teste'
-      POSTGRESS_USERNAME: 'teste'
-      POSTGRESS_PASSWORD: 'teste'
+      POSTGRES_DB: 'teste'
+      POSTGRES_USER: 'teste'
+      POSTGRES_PASSWORD: 'teste'
