@@ -20,3 +20,5 @@ class App {
     this.app.use(routes);
   }
 }
+
+export default new App().app;
