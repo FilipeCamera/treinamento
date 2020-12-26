@@ -1,14 +1,17 @@
-import { type } from 'os';
 import {
   Entity, 
   PrimaryGeneratedColumn, 
   CreateDateColumn, 
   UpdateDateColumn, 
   Column,
-  OneToMany
+  OneToMany,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 
 import Message from './Message';
+
+import bcrypt from 'bcryptjs';
 
 @Entity('users')
 class User {
@@ -32,6 +35,14 @@ class User {
 
   @UpdateDateColumn({nullable: false, name: 'updated_at', update: true})
   updatedAt !: Date;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashSenha(){
+    this.senha = bcrypt.hashSync(this.senha, 8)
+  }
+
+  
 }
 
 export default User;
